@@ -1,0 +1,215 @@
+body {
+ font-family: 'Arial', sans-serif;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ min-height: 100vh;
+ margin: 0;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ }
+
+ .game-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 20px;
+ padding: 20px;
+ background: rgba(255, 255, 255, 0.1);
+ backdrop-filter: blur(10px);
+ border-radius: 20px;
+ box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+ }
+
+ h1 {
+ color: white;
+ margin: 0 0 20px 0;
+ font-size: 2.5em;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+
+ .game-board {
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ padding: 20px;
+ background: rgba(255, 255, 255, 0.05);
+ border-radius: 15px;
+ backdrop-filter: blur(5px);
+ }
+
+ .row {
+ display: flex;
+ gap: 8px;
+ }
+
+ .tile {
+ width: 60px;
+ height: 60px;
+ border: 2px solid rgba(255, 255, 255, 0.3);
+ background: rgba(255, 255, 255, 0.1);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 24px;
+ font-weight: bold;
+ color: white;
+ border-radius: 8px;
+ transition: all 0.3s ease;
+ cursor: pointer;
+ backdrop-filter: blur(10px);
+ }
+
+ .tile:hover {
+ transform: scale(1.05);
+ border-color: rgba(255, 255, 255, 0.6);
+ box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+ }
+
+ .tile.filled {
+ background: rgba(255, 255, 255, 0.2);
+ border-color: rgba(255, 255, 255, 0.5);
+ }
+
+ .tile.correct {
+ background: #6aaa64;
+ border-color: #5a9a54;
+ animation: flip 0.6s ease-in-out;
+ }
+
+ .tile.present {
+ background: #c9b458;
+ border-color: #b9a448;
+ animation: flip 0.6s ease-in-out;
+ }
+
+ .tile.absent {
+ background: #787c7e;
+ border-color: #686c6e;
+ animation: flip 0.6s ease-in-out;
+ }
+
+ .keyboard {
+ display: grid;
+ grid-template-columns: repeat(10, 1fr);
+ gap: 6px;
+ margin-top: 20px;
+ max-width: 600px;
+ }
+
+ .key {
+ height: 50px;
+ background: rgba(255, 255, 255, 0.1);
+ border: 1px solid rgba(255, 255, 255, 0.3);
+ border-radius: 8px;
+ color: white;
+ font-size: 16px;
+ font-weight: bold;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ backdrop-filter: blur(10px);
+ }
+
+ .key:hover {
+ background: rgba(255, 255, 255, 0.2);
+ transform: translateY(-2px);
+ }
+
+ .key.wide {
+ grid-column: span 2;
+ }
+
+ .message {
+ color: white;
+ font-size: 18px;
+ margin-top: 10px;
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+ }
+
+ @keyframes flip {
+ 0% { transform: rotateY(0); }
+ 50% { transform: rotateY(-90deg); }
+ 100% { transform: rotateY(0); }
+ }
+
+ @keyframes shake {
+ 0%, 100% { transform: translateX(0); }
+ 25% { transform: translateX(-5px); }
+ 75% { transform: translateX(5px); }
+ }
+
+ .shake {
+ animation: shake 0.5s ease-in-out;
+ }
+
+ .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+/*
+#Keyboard{
+    display:block;
+    margin:auto;
+    justify-content: end;
+    height: 225px;
+}
+
+.word-row {
+
+    width: 350px;
+    height: 9.5px;
+    background-color: rgb(0, 0, 255);
+    border-right: 10px grey;
+    position: absolute;
+    height: 14px;
+}
+*/
